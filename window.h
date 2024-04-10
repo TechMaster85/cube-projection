@@ -9,7 +9,7 @@ class Window {
 private:
     const int WINDOW_WIDTH = 640;
     const int WINDOW_HEIGHT = 640;
-    const double BORDER = 0.8;   // 0 means the cube is one dot, 1 means the original cube uses the entire screen
+    // const double BORDER = 0.8;   // 0 means the cube is one dot, 1 means the original cube uses the entire screen
 
     SDL_Window* window = SDL_CreateWindow("Cube Projection", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
                                           WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);

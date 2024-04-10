@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS=-std=c++17 -Wconversion -Wall -Werror -Wextra -pedantic
+CXXFLAGS=-std=c++17 -Wconversion -Wall -Werror -Wextra -pedantic -Wno-conversion
 
 DEBUG_FLAGS=$(CXXFLAGS) -g3
 RELEASE_FLAGS=$(CXXFLAGS) -O3 -DNDEBUG
