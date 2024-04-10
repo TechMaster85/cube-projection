@@ -1,7 +1,11 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+#include <vector>
+
 #include <SDL2/SDL.h>
+
+#include "cube.h"
 
 enum class Key { NONE, ESCAPE, UP, DOWN, LEFT, RIGHT };
 
@@ -23,6 +27,8 @@ public:
     Key getKeyPress();
     bool hasQuit() const { return quit; };
 
+    int normCoord(double d);
+    void drawPoints(const Cube& cube);
     void updateWindow() const { SDL_RenderPresent(renderer); }
 
     void cleanup();

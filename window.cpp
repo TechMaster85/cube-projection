@@ -43,6 +43,18 @@ Key Window::getKeyPress() {
     return Key::NONE;
 }
 
+int Window::normCoord(double d) {
+    return static_cast<int>(d * WINDOW_HEIGHT / 0.8);
+}
+
+void Window::drawPoints(const Cube& cube) {
+    const std::vector<Point2D>& points = cube.getPoints();
+    for (const Point2D& p : points) {
+        SDL_RenderDrawPoint(renderer, normCoord(p.x), normCoord(p.y));
+    }
+    SDL_RenderPresent(renderer);
+}
+
 void Window::cleanup() {
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);

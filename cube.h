@@ -24,6 +24,13 @@ struct Point2D {
     double y;
 };
 
+struct Line {
+    double x1;
+    double y1;
+    double x2;
+    double y2;
+};
+
 class Cube {
 private:
     // Transform this by a 2x3 matrix to get your points
@@ -35,9 +42,14 @@ private:
     // After matrix is transformed, you'll get 8 of these.
     std::vector<Point2D> points;
 
-
 public:
     void reset();
+    const std::vector<Point2D>& getPoints() const {return points;}
+    void transformed_points(float rads_ud, float rads_lr);
+    void line_export(std::vector<Point2D> &vec);
+    void project_to_plane(); 
+
+
     // void printPoints():
 
     // TODO: Make a project function (maybe with helpers) to:

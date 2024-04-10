@@ -40,6 +40,7 @@ int main() {
         }
 
         // Feed the matrix into a draw function
+        window.drawPoints(cube);
     }
 
     return 0;
