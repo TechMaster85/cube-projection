@@ -4,7 +4,7 @@
 #include <cmath>
 #include <vector>
 
-#include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/Core>
 
 // Creates variables M_PI and other useful constants
 // https://learn.microsoft.com/en-us/cpp/c-runtime-library/math-constants?view=msvc-170
