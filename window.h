@@ -27,6 +27,7 @@ public:
     Key getKeyPress();
     bool hasQuit() const { return quit; };
 
+    void drawPoint(Point2D p, int thickness);
     int normCoord(double d);
     void drawPoints(const Cube& cube);
     void updateWindow() const { SDL_RenderPresent(renderer); }

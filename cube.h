@@ -44,10 +44,10 @@ private:
 
 public:
     void reset();
-    const std::vector<Point2D>& getPoints() const {return points;}
+    const std::vector<Point2D>& getPoints() const { return points; }
     void transformed_points(float rads_ud, float rads_lr);
-    void line_export(std::vector<Point2D> &vec);
-    void project_to_plane(); 
+    // void line_export(std::vector<Point2D> &vec);
+    void project_to_plane();
 
 
     // void printPoints():
