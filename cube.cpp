@@ -34,15 +34,15 @@ void Cube::project_to_plane() {
     
 }
 
-Eigen::vector2d project_vector_to_plane(Eigen::vector3d &v) {
-    Eigen::vector2d result;
-    double k; 
-    Eigen::vector3d e1 = {1, 0, 0}; // represents standard basis vector on x
-    Eigen::vector3d e2 = {0, 1, 0}; // represents standard basis vector on y
+Eigen::Vector2d project_vector_to_plane(Eigen::Vector3d &v) {
+    Eigen::Vector2d result;
+    Eigen::Vector3d e1(1f, 0f, 0f); // represents standard basis vector on x
+    Eigen::Vector3d e2(0f, 1f, 0f); // represents standard basis vector on y
 
     // project vector onto xy plane
 
-    result = ((e1 * v) * e1) + ((e2 * v) * e2);
+    result = ((e1 * v.transpose()) * e1) + ((e2 * v.transpose()) * e2);
+    return result;
 }
 
 std::vector<Line> Cube::line_export(std::vector<Point2D> &vec){
