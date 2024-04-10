@@ -10,7 +10,7 @@ LINK=SDL2
 EXECUTABLE=cube-rotation
 
 main:
-	$(CXX) $(FILES) $(RELEASE_FLAGS) -l$(LINK) -o $(EXECUTABLE)
+	$(CXX) $(FILES) $(RELEASE_FLAGS) -I/opt/homebrew/include -L/opt/homebrew/lib -l$(LINK) -o $(EXECUTABLE)
 
 debug:
 	$(CXX) $(FILES) $(DEBUG_FLAGS) -l$(LINK) -o $(EXECUTABLE)_debug
