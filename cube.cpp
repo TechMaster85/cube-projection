@@ -1,30 +1,40 @@
 #include "cube.h"
 
-// Whoever figures out how to create the transformation matrix, copy the reset() function,
-// but feed in degrees (in radians preferably to make sin() and cos() easier).
+// Whoever figures out how to create the transformation matrix, copy the reset()
+// function, but feed in degrees (in radians preferably to make sin() and cos()
+// easier).
 
 void Cube::reset() {
     points.clear();
-    points.reserve(originalMat.size());   // 8
+    points.reserve(originalMat.size());  // 8
 
     // 2 rows, 3 columns, visualize this transformed
     // Don't know why they have goofy ahh syntax but it's const so it's fast
-    const Eigen::MatrixXd transformation = (Eigen::MatrixXd(2, 3) << 1, 0, 0, 0, 1, 0).finished();
+    const Eigen::MatrixXd transformation =
+        (Eigen::MatrixXd(2, 3) << 1, 0, 0, 0, 1, 0).finished();
 
     for (const Eigen::Vector3d& vec : originalMat) {
         const Eigen::Vector2d pointVector = transformation * vec;
-        points.push_back(Point2D { pointVector[0], pointVector[1] });
+        points.push_back(Point2D{pointVector[0], pointVector[1]});
     }
 }
 
+void Cube::transformed_points(const float& rotx, const float& roty) {
+    // transformation matrix rotating along x axis
+    Eigen::MatrixXd rotx_transformation =
+        (Eigen::MatrixXd(3, 3) << 1, 0, 0, 0, cos(rotx), -sin(roty), 0,
+         sin(roty), cos(roty))
+            .finished();
+    // transformation matrix rotating along y axis
+    Eigen::MatrixXd roty_transformation =
+        (Eigen::MatrixXd(3, 3) << cos(roty), 0, sin(roty), 0, 1, 0, -sin(roty),
+         0, cos(roty))
+            .finished();
+    // both
+    Eigen::MatrixXd roty_transformation =
+        rotx_transformation * roty_transformation;
 
-// Only two "directions" it can rotate at once, take in either degrees up down for up down arrow and degrees left right
-// for left right arrow
-// void Cube::transformed_points(float rads_ud, float rads_lr) {
-//     float rotx = M_PI / 12;
-//     float roty = M_PI / 12;
-
-//     Eigen::MatrixXd transformation = (Eigen::MatrixXd(2, 3) << 1, 0, 0, 0, 1, 0).finished();
-// }
+    // reference: https://www.malinc.se/math/linalg/rotatecubeen.php
+}
 
 void Cube::project_to_plane() {}
