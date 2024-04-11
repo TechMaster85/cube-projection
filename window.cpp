@@ -1,5 +1,9 @@
 #include "window.h"
 
+#include <iostream>
+
+#include <SDL2/SDL_render.h>
+
 // Will wait until a key is pressed
 Key Window::getKeyPress() {
     while (SDL_PollEvent(&e)) {
@@ -44,13 +48,25 @@ Key Window::getKeyPress() {
 }
 
 int Window::normCoord(double d) {
-    return static_cast<int>(d * WINDOW_HEIGHT / 0.8);
+    return static_cast<int>((WINDOW_HEIGHT / 2) - (d * WINDOW_HEIGHT * 0.4));
+}
+
+void Window::drawPoint(Point2D p, int thickness) {
+    // Draw a square block of pixels around (x, y)
+    for (int i = -thickness; i <= thickness; ++i) {
+        for (int j = -thickness; j <= thickness; ++j) {
+            SDL_RenderDrawPoint(renderer, normCoord(p.x) + i, normCoord(p.y) + j);
+        }
+    }
 }
 
 void Window::drawPoints(const Cube& cube) {
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     const std::vector<Point2D>& points = cube.getPoints();
     for (const Point2D& p : points) {
-        SDL_RenderDrawPoint(renderer, normCoord(p.x), normCoord(p.y));
+        drawPoint(p, 5);
     }
     SDL_RenderPresent(renderer);
 }

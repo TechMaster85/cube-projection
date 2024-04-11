@@ -8,6 +8,7 @@ int main() {
     Cube cube;
 
     window.updateWindow();
+    cube.reset();
 
     while (!window.hasQuit()) {
         // Wait for a key press (escape or pressing exit on window will activate hasQuit())
