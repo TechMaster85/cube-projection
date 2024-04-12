@@ -31,10 +31,14 @@ void Cube::transformed_points(const float& rotx, const float& roty) {
          0, cos(roty))
             .finished();
     // both
-    Eigen::MatrixXd roty_transformation =
+    roty_transformation =
         rotx_transformation * roty_transformation;
 
     // reference: https://www.malinc.se/math/linalg/rotatecubeen.php
 }
 
-void Cube::project_to_plane() {}
+void Cube::project_to_plane() {
+
+}
+
+// Eigen::Vector2d Cube::project_vector_to_plane(Eigen::Vector3d &v) {}

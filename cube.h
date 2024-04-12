@@ -45,9 +45,10 @@ private:
 public:
     void reset();
     const std::vector<Point2D>& getPoints() const { return points; }
-    void transformed_points(float rads_ud, float rads_lr);
+    void transformed_points(const float& rotx, const float& roty);
     // void line_export(std::vector<Point2D> &vec);
     void project_to_plane();
+    Eigen::Vector2d project_vector_to_plane(Eigen::Vector3d &v);
 
 
     // void printPoints():
