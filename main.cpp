@@ -21,18 +21,22 @@ int main() {
 
         case Key::UP:
             std::cout << "Key UP pressed\n";
+            cube.transformed_points(0, M_PI / 8);
             break;
 
         case Key::DOWN:
             std::cout << "Key DOWN pressed\n";
+            cube.transformed_points(0, -M_PI / 8);
             break;
 
         case Key::LEFT:
             std::cout << "Key LEFT pressed\n";
+            cube.transformed_points(-M_PI / 8, 0);
             break;
 
         case Key::RIGHT:
             std::cout << "Key RIGHT pressed\n";
+            cube.transformed_points(M_PI / 8, 0);
             break;
 
         case Key::ESCAPE:
