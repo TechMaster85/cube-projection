@@ -1,13 +1,12 @@
 CXX=g++
 CXXFLAGS=-std=c++17 -Wconversion -Wall -Werror -Wextra -pedantic -Wno-conversion -Wno-unused-variable
 
-DEBUG_FLAGS=$(CXXFLAGS) -g3
 RELEASE_FLAGS=$(CXXFLAGS) -O3 -DNDEBUG
-# Update this if you have more .cpp files
+DEBUG_FLAGS=$(CXXFLAGS) -g3
 FILES=*.cpp
 
 LINK=SDL2
-EXECUTABLE=cube-rotation
+EXECUTABLE=cube-projection
 
 APPLESILICON=
 
@@ -21,7 +20,7 @@ main:
 	$(CXX) $(FILES) $(RELEASE_FLAGS) $(APPLESILICON) -l$(LINK) -o $(EXECUTABLE)
 
 debug:
-	$(CXX) $(FILES) $(DEBUG_FLAGS) -l$(LINK) -o $(EXECUTABLE)_debug
+	$(CXX) $(FILES) $(DEBUG_FLAGS) $(APPLESILICON) -l$(LINK) -o $(EXECUTABLE)_debug
 
 clean:
 	rm $(EXECUTABLE)*
