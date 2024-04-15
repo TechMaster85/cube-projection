@@ -2,6 +2,7 @@
 #define CUBE_H
 
 #include <cmath>
+#include <iostream>
 #include <vector>
 
 #include <eigen3/Eigen/Core>
@@ -61,23 +62,7 @@ public:
     void project_to_plane(const Eigen::MatrixXd& transformation);
     Eigen::Vector2d project_vector_to_plane(Eigen::Vector3d& v);
 
-
-    // void printPoints():
-
-    // TODO: Make a project function (maybe with helpers) to:
-    // - Rotate along x axis (rolling forward or backward) by d degrees
-    // - Rotate along y axis (spinning left or right) by d degrees
-
-    // (Rotating along z axis not needed, quaternions suck ¯\_(ツ)_/¯)
-
-    // Rotation can be accomplished by matrix multiplication of a 2x3 vector
-    // you figure out by each vector in originalMat. Check out reset() in
-    // cube.cpp
-
-    // This is a pretty helpful guide to eigen:
-    // https://cs2240.graphics/assignments/eigen_tutorial.pdf
-
-    // If your functions aren't easy one-liners, please put them in cube.cpp.
+    void printRotation() const { std::cout << "X: " << rotX << "\tY: " << rotY << '\n'; };
 };
 
 #endif
