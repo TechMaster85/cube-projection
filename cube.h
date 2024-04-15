@@ -54,7 +54,7 @@ public:
     // void line_export(std::vector<Point2D> &vec);
     void project_to_plane(const Eigen::MatrixXd& transformation);
 
-    void printRotation() const { std::cout << "X: " << rotX << "\tY: " << rotY << '\n'; };
+    void printRotation() const { std::cout << "X: " << rotX / M_PI << "π\tY: " << rotY / M_PI << "π\n"; };
 };
 
 #endif
