@@ -34,13 +34,6 @@ struct Line {
 
 class Cube {
 private:
-    // Transform this by a 2x3 matrix to get your points
-    // const std::vector<Eigen::Vector3d> originalMat { Eigen::Vector3d(0, 0, 0), Eigen::Vector3d(1, 0, 0),
-    //                                                  Eigen::Vector3d(0, 1, 0), Eigen::Vector3d(0, 0, 1),
-    //                                                  Eigen::Vector3d(1, 1, 0), Eigen::Vector3d(0, 1, 1),
-    //                                                  Eigen::Vector3d(1, 0, 1), Eigen::Vector3d(1, 1, 1) };
-
-
     const std::vector<Eigen::Vector3d> originalMat {
         Eigen::Vector3d(-0.5, -0.5, -0.5), Eigen::Vector3d(0.5, -0.5, -0.5), Eigen::Vector3d(-0.5, 0.5, -0.5),
         Eigen::Vector3d(-0.5, -0.5, 0.5),  Eigen::Vector3d(0.5, 0.5, -0.5),  Eigen::Vector3d(-0.5, 0.5, 0.5),
