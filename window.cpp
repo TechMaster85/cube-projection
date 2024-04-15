@@ -51,6 +51,10 @@ int Window::normCoord(double d) {
     return static_cast<int>((WINDOW_HEIGHT / 2) - (d * WINDOW_HEIGHT * 0.4));
 }
 
+Line pointsToLine(const std::vector<Point2D>& points, int ind1, int ind2) {
+    return Line { points.at(ind1).x, points.at(ind1).y, points.at(ind2).x, points.at(ind2).y };
+}
+
 void Window::drawLine(const Line& line, int thickness) {
     const int x1 = static_cast<int>(normCoord(line.x1));
     const int y1 = static_cast<int>(normCoord(line.y1));
@@ -68,18 +72,18 @@ void Window::drawLine(const Line& line, int thickness) {
 void Window::drawLines(const Cube& cube) {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     const std::vector<Point2D>& points = cube.getPoints();
-    drawLine(Line { points.at(0).x, points.at(0).y, points.at(1).x, points.at(1).y }, 2);
-    drawLine(Line { points.at(1).x, points.at(1).y, points.at(4).x, points.at(4).y }, 2);
-    drawLine(Line { points.at(4).x, points.at(4).y, points.at(2).x, points.at(2).y }, 2);
-    drawLine(Line { points.at(2).x, points.at(2).y, points.at(0).x, points.at(0).y }, 2);
-    drawLine(Line { points.at(3).x, points.at(3).y, points.at(6).x, points.at(6).y }, 2);
-    drawLine(Line { points.at(6).x, points.at(6).y, points.at(7).x, points.at(7).y }, 2);
-    drawLine(Line { points.at(7).x, points.at(7).y, points.at(5).x, points.at(5).y }, 2);
-    drawLine(Line { points.at(5).x, points.at(5).y, points.at(3).x, points.at(3).y }, 2);
-    drawLine(Line { points.at(0).x, points.at(0).y, points.at(3).x, points.at(3).y }, 2);
-    drawLine(Line { points.at(1).x, points.at(1).y, points.at(6).x, points.at(6).y }, 2);
-    drawLine(Line { points.at(4).x, points.at(4).y, points.at(7).x, points.at(7).y }, 2);
-    drawLine(Line { points.at(2).x, points.at(2).y, points.at(5).x, points.at(5).y }, 2);
+    drawLine(pointsToLine(points, 0, 1), 2);
+    drawLine(pointsToLine(points, 1, 4), 2);
+    drawLine(pointsToLine(points, 4, 2), 2);
+    drawLine(pointsToLine(points, 2, 0), 2);
+    drawLine(pointsToLine(points, 3, 6), 2);
+    drawLine(pointsToLine(points, 6, 7), 2);
+    drawLine(pointsToLine(points, 7, 5), 2);
+    drawLine(pointsToLine(points, 5, 3), 2);
+    drawLine(pointsToLine(points, 0, 3), 2);
+    drawLine(pointsToLine(points, 1, 6), 2);
+    drawLine(pointsToLine(points, 4, 7), 2);
+    drawLine(pointsToLine(points, 2, 5), 2);
 
     SDL_RenderPresent(renderer);
 }
