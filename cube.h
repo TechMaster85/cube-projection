@@ -60,7 +60,6 @@ public:
     void transformed_points(const double& rotx, const double& roty);
     // void line_export(std::vector<Point2D> &vec);
     void project_to_plane(const Eigen::MatrixXd& transformation);
-    Eigen::Vector2d project_vector_to_plane(Eigen::Vector3d& v);
 
     void printRotation() const { std::cout << "X: " << rotX << "\tY: " << rotY << '\n'; };
 };

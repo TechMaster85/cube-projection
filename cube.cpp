@@ -47,5 +47,3 @@ void Cube::project_to_plane(const Eigen::MatrixXd& transformation) {
         points.push_back(Point2D{pointVector[0], pointVector[1]});
     }
 }
-
-// Eigen::Vector2d Cube::project_vector_to_plane(Eigen::Vector3d &v) {}
