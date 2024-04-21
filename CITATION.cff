@@ -1,0 +1,24 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Cube Projection
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: William Starrs
+  - given-names: Silas Falde
+  - given-names: Patrick Wang
+  - given-names: Andre Gala-Garza
+  - given-names: Christian Manohar
+repository-code: 'https://github.com/TechMaster85/cube-projection'
+abstract: >-
+  Transforms a matrix of 3D Cube coordinates with Eigen3 and
+  visualizes the results with SDL2
+keywords:
+  - projection
+  - cube
+  - C++
+license: MIT
